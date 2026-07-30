@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="2340" viewBox="0 0 1080 2340">
+  <rect width="1080" height="2340" fill="#f7fbfd"/>
+  <circle cx="540" cy="58" r="14" fill="#17303b"/>
+  <text x="88" y="150" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#122733">NeoLinks</text>
+  <text x="88" y="212" font-family="Arial, sans-serif" font-size="24" fill="#78909b">图库首页 · 截图占位</text>
+  <rect x="88" y="272" width="904" height="130" rx="38" fill="#e3f3fb"/>
+  <rect x="88" y="460" width="438" height="520" rx="36" fill="#70b7e5"/>
+  <circle cx="255" cy="620" r="72" fill="#ffce63"/>
+  <rect x="554" y="460" width="438" height="342" rx="36" fill="#e5f1df"/>
+  <rect x="554" y="830" width="438" height="460" rx="36" fill="#d6ecf8"/>
+  <rect x="88" y="1008" width="438" height="560" rx="36" fill="#f9e9b9"/>
+  <rect x="554" y="1318" width="438" height="378" rx="36" fill="#a9cf93"/>
+  <rect x="88" y="1596" width="438" height="344" rx="36" fill="#b9def3"/>
+  <rect x="554" y="1724" width="438" height="216" rx="36" fill="#edf3f6"/>
+  <rect x="88" y="2080" width="904" height="116" rx="40" fill="#ffffff" stroke="#dbe9f0" stroke-width="4"/>
+  <text x="540" y="2270" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#78909b">请替换为实际应用截图</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="2340" viewBox="0 0 1080 2340">
+  <rect width="1080" height="2340" fill="#f7fbfd"/>
+  <circle cx="540" cy="58" r="14" fill="#17303b"/>
+  <text x="88" y="160" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#122733">相册</text>
+  <text x="88" y="218" font-family="Arial, sans-serif" font-size="24" fill="#78909b">相册管理 · 截图占位</text>
+  <g>
+    <rect x="88" y="310" width="904" height="350" rx="42" fill="#e3f3fb"/>
+    <rect x="88" y="700" width="904" height="350" rx="42" fill="#eaf3e5"/>
+    <rect x="88" y="1090" width="904" height="350" rx="42" fill="#fff3d3"/>
+    <rect x="88" y="1480" width="904" height="350" rx="42" fill="#edf3f6"/>
+    <circle cx="260" cy="485" r="108" fill="#70b7e5"/>
+    <circle cx="260" cy="875" r="108" fill="#83b665"/>
+    <circle cx="260" cy="1265" r="108" fill="#ffbe32"/>
+    <circle cx="260" cy="1655" r="108" fill="#abc4d1"/>
+  </g>
+  <g fill="#78909b">
+    <rect x="430" y="440" width="390" height="30" rx="15"/>
+    <rect x="430" y="830" width="340" height="30" rx="15"/>
+    <rect x="430" y="1220" width="410" height="30" rx="15"/>
+    <rect x="430" y="1610" width="300" height="30" rx="15"/>
+  </g>
+  <text x="540" y="2204" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#78909b">请替换为实际应用截图</text>
+</svg>

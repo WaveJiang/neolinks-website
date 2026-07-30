@@ -1,0 +1,29 @@
+# 系统与编辑器临时文件
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# 本地临时目录
+work/
+outputs/
+
+# Android / 签名 / 密钥文件（官网仓库禁止提交）
+*.apk
+*.aab
+*.jks
+*.keystore
+*.key
+*.pem
+*.p12
+*.pfx
+local.properties
+gradle.properties
+
+# 环境变量和私密配置
+.env
+.env.*
+!.env.example
+*secret*
+*credential*

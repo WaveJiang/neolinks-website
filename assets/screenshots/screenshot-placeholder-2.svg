@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="2340" viewBox="0 0 1080 2340">
+  <rect width="1080" height="2340" fill="#eef8fc"/>
+  <circle cx="540" cy="58" r="14" fill="#17303b"/>
+  <text x="88" y="160" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#122733">动态照片</text>
+  <text x="88" y="218" font-family="Arial, sans-serif" font-size="24" fill="#78909b">播放界面 · 截图占位</text>
+  <rect x="68" y="294" width="944" height="1390" rx="48" fill="#224c62"/>
+  <path d="M68 1180 Q270 820 510 1180 T1012 1020 V1684 H68Z" fill="#83b665"/>
+  <circle cx="744" cy="550" r="108" fill="#ffbe32"/>
+  <circle cx="540" cy="1000" r="112" fill="none" stroke="#fff" stroke-width="20"/>
+  <circle cx="540" cy="1000" r="48" fill="#fff" opacity=".9"/>
+  <rect x="128" y="1770" width="824" height="310" rx="42" fill="#fff"/>
+  <rect x="190" y="1842" width="700" height="30" rx="15" fill="#dbe9f0"/>
+  <circle cx="478" cy="1857" r="25" fill="#70b7e5"/>
+  <rect x="330" y="1938" width="420" height="88" rx="44" fill="#2e86bd"/>
+  <text x="540" y="2204" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#78909b">请替换为实际应用截图</text>
+</svg>

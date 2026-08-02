@@ -708,6 +708,37 @@ button {
   font-weight: 750;
 }
 
+
+.download-details > div:last-child {
+  grid-column: 1 / -1;
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.34);
+  box-shadow: 0 12px 26px rgba(18, 39, 51, 0.14);
+}
+
+.download-details > div:last-child dt {
+  color: rgba(255, 255, 255, 0.86);
+  font-weight: 800;
+}
+
+.download-details > div:last-child dd[data-config="downloadPassword"] {
+  margin-top: 2px;
+  color: #fff;
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1;
+  letter-spacing: 0.16em;
+  font-weight: 900;
+  text-shadow: 0 2px 14px rgba(18, 39, 51, 0.22);
+}
+
+.download-actions p strong[data-config="downloadPassword"],
+.qr-placeholder strong[data-config="downloadPassword"] {
+  color: #ffe36e;
+  font-size: 1.25em;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
 .download-actions {
   margin-top: 26px;
   display: flex;

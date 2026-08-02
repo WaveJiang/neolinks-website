@@ -31,6 +31,12 @@ function applyConfig() {
     link.setAttribute("aria-label", "查看 NeoLinks 下载方式、提取密码和二维码");
   });
 
+  document.querySelectorAll(".download-external-link").forEach((link) => {
+    link.href = appConfig.downloadUrl;
+    link.target = "_blank";
+    link.setAttribute("aria-label", "前往蓝奏云下载 NeoLinks");
+  });
+
   document.querySelectorAll(".feedback-link").forEach((link) => {
     link.href = appConfig.feedbackUrl;
   });

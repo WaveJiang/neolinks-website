@@ -83,6 +83,8 @@ NeoLinks Android App 会请求本仓库根目录的 `version.json`（GitHub Page
 
 > 注意：`versionCode` 必须与 Android 工程 `app/build.gradle.kts` 中 `versionCode` 保持一致且递增，否则旧版本用户收不到更新提示，或提示与蓝奏云实际文件不一致。
 
+> 完整的发版操作手册见 Android 工程根目录的 `RELEASE.md`；对 AI 说“更新线上版本”即可按该手册执行。
+
 ## 本地预览
 
 最简单的方法是直接双击 `index.html`。主要页面能够正常打开，但更推荐启动一个本地静态服务器，以便模拟 GitHub Pages：

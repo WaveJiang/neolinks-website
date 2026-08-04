@@ -3,7 +3,7 @@
   "versionCode": 36,
   "versionName": "0.3.6",
   "releaseDate": "2026-08-04",
-  "updateLog": "新增：App 内更新检测，一键前往蓝奏云下载新版本；优化“版本与更新”页面。",
+  "updateLog": "新增 App 内更新检测与一键下载；影像信息新增 GPS 位置查看；全屏查看器支持跟随设备旋转；动图默认播放音量可调；视频可截取静帧；Android 13+ 支持开启系统媒体管理权限，删除照片不再反复弹确认。",
   "downloadUrl": "https://wwbah.lanzoul.com/b01eunew0b",
   "downloadPassword": "24fr",
   "forceUpdate": false

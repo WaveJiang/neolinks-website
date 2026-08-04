@@ -10,6 +10,7 @@ NeoLinks 的纯静态官方网站，可直接部署到 GitHub Pages。项目只�
 .
 ├── index.html
 ├── privacy.html
+├── version.json
 ├── styles/
 │   └── main.css
 ├── scripts/
@@ -52,8 +53,35 @@ const appConfig = {
 - `downloadPassword` 已设置为 `24fr`。
 - `feedbackUrl` 已设置为腾讯问卷。
 - `userGuideUrl` 当前未在页面展示，保留给以后增加使用说明入口。
+- `version.json` 是 App 的更新检测接口，版本号、更新日志和下载地址必须与实际发布的 APK 一致，详见下方“App 更新检测”一节。
 
-官网不展示版本号、APK 大小、更新日期和更新日志，这些信息统一以蓝奏云页面为准，因此上传新 APK 时通常无需修改官网。系统要求、下载链接和提取密码从该配置统一读取。
+官网本身不展示版本号、APK 大小、更新日期和更新日志，这些信息统一以蓝奏云页面为准；但 App 内的“检查更新”功能会读取仓库根目录的 `version.json`。系统要求、下载链接和提取密码从 `appConfig` 统一读取。
+
+## App 更新检测（version.json）
+
+NeoLinks Android App 会请求本仓库根目录的 `version.json`（GitHub Pages 部署后即成为固定地址，例如 `https://WaveJiang.github.io/neolinks-website/version.json`），与当前安装版本比较后决定是否提示更新，用户点击“立即更新”后跳转蓝奏云下载页。
+
+`version.json` 字段说明：
+
+| 字段 | 类型 | 说明 |
+| --- | --- | --- |
+| `appId` | string | 应用包名，用于校验来源，需保持 `com.neolinks.app` |
+| `versionCode` | int | 版本号（单调递增），App 用它判断是否有新版本 |
+| `versionName` | string | 版本名，例如 `0.3.6`，仅用于展示 |
+| `releaseDate` | string | 发布日期，格式 `yyyy-MM-dd` |
+| `updateLog` | string | 本次更新内容，会显示在更新弹窗中 |
+| `downloadUrl` | string | 蓝奏云下载页地址 |
+| `downloadPassword` | string | 蓝奏云提取密码，App 会复制到剪贴板 |
+| `forceUpdate` | boolean | 是否强制更新；为 `true` 时用户不能关闭更新弹窗 |
+
+发布新版本时，按以下顺序操作：
+
+1. 将新 APK 上传到蓝奏云，确认分享链接和提取密码可用。
+2. 修改 `version.json` 中的 `versionCode`、`versionName`、`releaseDate` 和 `updateLog`；如链接或密码变化，同时修改 `downloadUrl`、`downloadPassword`，并同步更新 `scripts/main.js` 顶部 `appConfig` 与下载二维码。
+3. 提交并推送，GitHub Pages 会在几分钟内自动发布。
+4. 安装新 APK 前，先在 App 内点击“检查更新”验证提示与跳转是否正常。
+
+> 注意：`versionCode` 必须与 Android 工程 `app/build.gradle.kts` 中 `versionCode` 保持一致且递增，否则旧版本用户收不到更新提示，或提示与蓝奏云实际文件不一致。
 
 ## 本地预览
 
@@ -237,6 +265,8 @@ https://github.com/GITHUB_USERNAME/GITHUB_REPOSITORY/releases/latest/download/Ne
 - [ ] Android 最低版本正确
 - [ ] 官网下载按钮能打开正确的蓝奏云页面
 - [ ] 蓝奏云提取密码 `24fr` 正确
+- [ ] `version.json` 中的版本号、更新日志与蓝奏云实际文件一致
+- [ ] 手机安装新 APK 后，App 内“检查更新”能正确提示并跳转蓝奏云
 - [ ] 腾讯问卷可以打开
 - [ ] 已替换真实应用截图或接受占位图继续显示
 - [ ] 下载二维码可以识别并打开正确链接

@@ -1,0 +1,10 @@
+{
+  "appId": "com.neolinks.app",
+  "versionCode": 36,
+  "versionName": "0.3.6",
+  "releaseDate": "2026-08-04",
+  "updateLog": "新增：App 内更新检测，一键前往蓝奏云下载新版本；优化“版本与更新”页面。",
+  "downloadUrl": "https://wwbah.lanzoul.com/b01eunew0b",
+  "downloadPassword": "24fr",
+  "forceUpdate": false
+}

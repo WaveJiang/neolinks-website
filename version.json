@@ -1,9 +1,9 @@
 {
   "appId": "com.neolinks.app",
-  "versionCode": 43,
-  "versionName": "0.4.3",
-  "releaseDate": "2026-08-27",
-  "updateLog": "下载密码：24fr\n\n【0.4.3】\n- 新增本机影像总览与近 30 天创作选图入口，查找照片更方便。\n- 改进 PDF 阅读体验，并增强 PSD、PDF 等扩展格式预览。\n- 新增极简文字水印，优化自定义位置、实时预览及 HDR 水印效果。\n- 水印或 HDR 处理完成后返回原照片，减少页面频繁跳转。\n- 支持备份与恢复应用设置和收藏记录。\n- 优化主题显示、大量照片删除、媒体识别、内存占用与整体稳定性。\n- 修复无效照片定位被错误显示为“大西洋”等问题。\n\n此外，本次更新还包含多项界面细节、性能和兼容性优化。",
+  "versionCode": 100,
+  "versionName": "1.0.0",
+  "releaseDate": "2026-09-02",
+  "updateLog": "全新版本正式上线",
   "downloadUrl": "https://wwbah.lanzoul.com/b01eunew0b",
   "downloadPassword": "24fr",
   "forceUpdate": false

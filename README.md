@@ -264,6 +264,23 @@ https://github.com/GITHUB_USERNAME/GITHUB_REPOSITORY/releases/latest/download/Ne
 
 ## 发布前检查清单
 
+## 让用户更容易搜到官网
+
+官网已内置以下搜索基础：
+
+- 首页标题和描述明确包含 `NeoLinks`、`努比亚`、`影像工具`。
+- `robots.txt` 允许抓取，并指向 `sitemap.xml`。
+- `sitemap.xml` 收录首页和隐私政策页。
+- 首页加入 `SoftwareApplication` 结构化数据，帮助搜索引擎理解 NeoLinks 是 Android 应用。
+- 首页与隐私政策页均设置了规范链接，避免 GitHub Pages 地址产生重复页面。
+
+这些文件提交并发布后，建议再做两件事：
+
+1. 在 Google Search Console 和 Bing Webmaster Tools 中添加 `https://wavejiang.github.io/neolinks-website/`，提交 `https://wavejiang.github.io/neolinks-website/sitemap.xml` 并请求编入索引。
+2. 在官网之外保持统一写法：`NeoLinks（努比亚影像工具）官网`，并在应用介绍、下载页、社交账号或社区帖子中链接回官网。搜索引擎通常需要外部链接和一段时间，才能把“NeoLinks 努比亚”稳定关联到官网。
+
+如果之后绑定了自己的域名，需要同步替换 `index.html`、`privacy.html`、`robots.txt` 和 `sitemap.xml` 中的 `wavejiang.github.io/neolinks-website`，并重新提交新域名的站点地图。
+
 - [ ] Android 最低版本正确
 - [ ] 官网下载按钮能打开正确的蓝奏云页面
 - [ ] 蓝奏云提取密码 `24fr` 正确

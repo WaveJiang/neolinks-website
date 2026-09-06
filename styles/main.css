@@ -378,18 +378,37 @@ button {
   transform: translateX(-50%);
 }
 
-.phone-front {
-  z-index: 2;
-  right: 85px;
-  transform: rotate(2deg);
+.hero-phones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
 }
 
-.phone-back {
-  z-index: 1;
-  left: 34px;
-  width: 218px;
-  opacity: 0.78;
-  transform: translateY(30px) rotate(-9deg);
+.hero-phones .phone {
+  position: static;
+  width: 178px;
+  padding: 7px;
+  border-radius: 28px;
+  box-shadow: 0 30px 60px rgba(25, 62, 80, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+.hero-phones .phone-screen {
+  border-radius: 22px;
+}
+
+.hero-phones .phone:nth-child(1) {
+  transform: rotate(-4deg);
+}
+
+.hero-phones .phone-main {
+  width: 196px;
+  z-index: 2;
+  transform: rotate(0.5deg);
+}
+
+.hero-phones .phone:nth-child(3) {
+  transform: rotate(4deg);
 }
 
 .orbit {
@@ -1110,12 +1129,16 @@ button {
     margin-top: 18px;
   }
 
-  .phone-front {
-    right: calc(50% - 122px);
+  .hero-phones {
+    gap: 10px;
   }
 
-  .phone-back {
-    left: calc(50% - 178px);
+  .hero-phones .phone {
+    width: 152px;
+  }
+
+  .hero-phones .phone-main {
+    width: 170px;
   }
 
   .orbit-one {

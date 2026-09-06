@@ -1,10 +1,10 @@
 {
   "appId": "com.neolinks.app",
-  "versionCode": 100,
-  "versionName": "1.0.0",
-  "releaseDate": "2026-09-02",
-  "updateLog": "全新版本正式上线",
+  "versionCode": 102,
+  "versionName": "1.0.2",
+  "releaseDate": "2026-09-06",
+  "updateLog": "反馈截图圈注、GIF 动图查看、惯性甩动等多项新功能与体验优化",
   "downloadUrl": "https://wwbah.lanzoul.com/b01eunew0b",
   "downloadPassword": "24fr",
-  "forceUpdate": false
+  "forceUpdate": true
 }

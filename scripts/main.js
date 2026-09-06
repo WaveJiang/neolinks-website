@@ -3,18 +3,8 @@ const appConfig = {
   downloadUrl: "https://wwbah.lanzoul.com/b01eunew0b",
   downloadPageUrl: "#download",
   downloadPassword: "24fr",
-  feedbackUrl: "https://wj.qq.com/s2/27422059/gvdu/",
-  userGuideUrl: "USER_GUIDE_URL"
+  feedbackUrl: "https://wj.qq.com/s2/27422059/gvdu/"
 };
-
-const placeholderTokens = [
-  "FEISHU_FORM_URL",
-  "USER_GUIDE_URL"
-];
-
-function isPlaceholderUrl(url) {
-  return !url || placeholderTokens.some((token) => url.includes(token));
-}
 
 function applyConfig() {
   document.querySelectorAll("[data-config]").forEach((element) => {
@@ -39,17 +29,6 @@ function applyConfig() {
 
   document.querySelectorAll(".feedback-link").forEach((link) => {
     link.href = appConfig.feedbackUrl;
-  });
-}
-
-function setupPlaceholderLinks() {
-  document.addEventListener("click", (event) => {
-    const link = event.target.closest("a");
-
-    if (!link || !isPlaceholderUrl(link.href)) return;
-
-    event.preventDefault();
-    window.alert("此链接仍是占位配置，请先在 scripts/main.js 中替换对应地址。");
   });
 }
 
@@ -122,7 +101,7 @@ function setCurrentYear() {
 }
 
 applyConfig();
-setupPlaceholderLinks();
+
 setupMobileMenu();
 setupRevealAnimation();
 setCurrentYear();

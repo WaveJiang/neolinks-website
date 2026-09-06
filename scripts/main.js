@@ -2,8 +2,7 @@ const appConfig = {
   minAndroidVersion: "Android 8.0 及以上",
   downloadUrl: "https://wwbah.lanzoul.com/b01eunew0b",
   downloadPageUrl: "#download",
-  downloadPassword: "24fr",
-  feedbackUrl: "https://wj.qq.com/s2/27422059/gvdu/"
+  downloadPassword: "24fr"
 };
 
 function applyConfig() {
@@ -27,9 +26,6 @@ function applyConfig() {
     link.setAttribute("aria-label", "前往蓝奏云下载 NeoLinks");
   });
 
-  document.querySelectorAll(".feedback-link").forEach((link) => {
-    link.href = appConfig.feedbackUrl;
-  });
 }
 
 function setupMobileMenu() {

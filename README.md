@@ -53,13 +53,15 @@ const appConfig = {
 - `downloadPassword` 已设置为 `24fr`。
 - `feedbackUrl` 已设置为腾讯问卷。
 - `userGuideUrl` 当前未在页面展示，保留给以后增加使用说明入口。
-- `version.json` 是 App 的更新检测接口，版本号、更新日志和下载地址必须与实际发布的 APK 一致，详见下方“App 更新检测”一节。
+- `version.json` 已冻结停用（2026-09-06 起）：版本更新走 CloudBase 分发中心，本文件固定在 1.0.2 / 102 / forceUpdate:true 不再变动，详见下方“App 更新检测”一节。
 
 官网本身不展示版本号、APK 大小、更新日期和更新日志，这些信息统一以蓝奏云页面为准；但 App 内的“检查更新”功能会读取仓库根目录的 `version.json`。系统要求、下载链接和提取密码从 `appConfig` 统一读取。
 
 ## App 更新检测（version.json）
 
-NeoLinks Android App 会请求本仓库根目录的 `version.json`（GitHub Pages 部署后即成为固定地址，例如 `https://WaveJiang.github.io/neolinks-website/version.json`），与当前安装版本比较后决定是否提示更新，用户点击“立即更新”后跳转蓝奏云下载页。
+> **⚠️ 本渠道已冻结（2026-09-06 起）**：版本更新已全面切换到 CloudBase 版本策略（分发中心发布），本文件不再跟随新版本更新。当前值（1.0.2 / 102 / forceUpdate:true）固定不变，唯一作用是把 0.4.x 及更早的残存老版本强制升级到蓝奏云最新包；在这些老用户基本升级完成前，**不要修改本文件的任何字段**。以下历史说明仅作存档。
+
+NeoLinks Android App 曾请求本仓库根目录的 `version.json`（GitHub Pages 部署后即成为固定地址，例如 `https://WaveJiang.github.io/neolinks-website/version.json`），与当前安装版本比较后决定是否提示更新，用户点击“立即更新”后跳转蓝奏云下载页。1.0.0 起 App 已改用 CloudBase 版本策略，不再读取本文件（仅 0.4.x 及更早版本仍会读取）。
 
 `version.json` 字段说明：
 
@@ -74,7 +76,7 @@ NeoLinks Android App 会请求本仓库根目录的 `version.json`（GitHub Page
 | `downloadPassword` | string | 蓝奏云提取密码，App 会复制到剪贴板 |
 | `forceUpdate` | boolean | 是否强制更新；为 `true` 时用户不能关闭更新弹窗 |
 
-发布新版本时，按以下顺序操作：
+历史发布顺序（已停用，仅存档——现在发版不要动 `version.json`，改走 CloudBase 分发中心）：
 
 1. 将新 APK 上传到蓝奏云，确认分享链接和提取密码可用。
 2. 修改 `version.json` 中的 `versionCode`、`versionName`、`releaseDate` 和 `updateLog`；如链接或密码变化，同时修改 `downloadUrl`、`downloadPassword`，并同步更新 `scripts/main.js` 顶部 `appConfig` 与下载二维码。

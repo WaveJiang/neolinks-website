@@ -1,297 +1,43 @@
-# NeoLinks 官方网站
+# NeoLinks 官网
 
-NeoLinks 的纯静态官方网站，可直接部署到 GitHub Pages。项目只使用 HTML、CSS 和原生 JavaScript，不需要安装 Node.js，也不需要服务器、数据库或构建工具。
-
-> 重要：本仓库只能存放官网文件。不要放入 NeoLinks Android 项目源代码、正式签名 APK、KeyStore、签名密码、API 密钥或其他敏感信息。当前官网主下载使用蓝奏云，GitHub Releases 可作为备份发布渠道。
-
-## 项目结构
-
-```text
-.
-├── index.html
-├── privacy.html
-├── version.json
-├── styles/
-│   └── main.css
-├── scripts/
-│   └── main.js
-├── assets/
-│   ├── logo/
-│   │   ├── neolinks-icon.png
-│   │   └── neolinks-wordmark.png
-│   └── screenshots/
-│       ├── screenshot-placeholder-1.svg
-│       ├── screenshot-placeholder-2.svg
-│       ├── screenshot-placeholder-3.svg
-│       └── screenshot-placeholder-4.svg
-├── .gitignore
-└── README.md
-```
-
-所有站内资源均使用相对路径，因此兼容以下 GitHub Pages 项目仓库地址：
-
-```text
-https://你的用户名.github.io/neolinks-website/
-```
-
-## 发布前必须修改的配置
-
-打开 `scripts/main.js`，修改文件顶部的 `appConfig`：
-
-```javascript
-const appConfig = {
-  minAndroidVersion: "Android 8.0 及以上",
-  downloadUrl: "https://wwbah.lanzoul.com/b01eunew0b",
-  downloadPassword: "24fr",
-  feedbackUrl: "https://wj.qq.com/s2/27422059/gvdu/",
-  userGuideUrl: "USER_GUIDE_URL"
-};
-```
-
-- 确认最低 Android 版本。
-- `downloadUrl` 已设置为蓝奏云下载页面。
-- `downloadPassword` 已设置为 `24fr`。
-- `feedbackUrl` 已设置为腾讯问卷。
-- `userGuideUrl` 当前未在页面展示，保留给以后增加使用说明入口。
-- `version.json` 已冻结停用（2026-09-06 起）：版本更新走 CloudBase 分发中心，本文件固定在 1.0.2 / 102 / forceUpdate:true 不再变动，详见下方“App 更新检测”一节。
-
-官网本身不展示版本号、APK 大小、更新日期和更新日志，这些信息统一以蓝奏云页面为准；但 App 内的“检查更新”功能会读取仓库根目录的 `version.json`。系统要求、下载链接和提取密码从 `appConfig` 统一读取。
-
-## App 更新检测（version.json）
-
-> **⚠️ 本渠道已冻结（2026-09-06 起）**：版本更新已全面切换到 CloudBase 版本策略（分发中心发布），本文件不再跟随新版本更新。当前值（1.0.2 / 102 / forceUpdate:true）固定不变，唯一作用是把 0.4.x 及更早的残存老版本强制升级到蓝奏云最新包；在这些老用户基本升级完成前，**不要修改本文件的任何字段**。以下历史说明仅作存档。
-
-NeoLinks Android App 曾请求本仓库根目录的 `version.json`（GitHub Pages 部署后即成为固定地址，例如 `https://WaveJiang.github.io/neolinks-website/version.json`），与当前安装版本比较后决定是否提示更新，用户点击“立即更新”后跳转蓝奏云下载页。1.0.0 起 App 已改用 CloudBase 版本策略，不再读取本文件（仅 0.4.x 及更早版本仍会读取）。
-
-`version.json` 字段说明：
-
-| 字段 | 类型 | 说明 |
-| --- | --- | --- |
-| `appId` | string | 应用包名，用于校验来源，需保持 `com.neolinks.app` |
-| `versionCode` | int | 版本号（单调递增），App 用它判断是否有新版本 |
-| `versionName` | string | 版本名，例如 `0.3.6`，仅用于展示 |
-| `releaseDate` | string | 发布日期，格式 `yyyy-MM-dd` |
-| `updateLog` | string | 本次更新内容，会显示在更新弹窗中 |
-| `downloadUrl` | string | 蓝奏云下载页地址 |
-| `downloadPassword` | string | 蓝奏云提取密码，App 会复制到剪贴板 |
-| `forceUpdate` | boolean | 是否强制更新；为 `true` 时用户不能关闭更新弹窗 |
-
-历史发布顺序（已停用，仅存档——现在发版不要动 `version.json`，改走 CloudBase 分发中心）：
-
-1. 将新 APK 上传到蓝奏云，确认分享链接和提取密码可用。
-2. 修改 `version.json` 中的 `versionCode`、`versionName`、`releaseDate` 和 `updateLog`；如链接或密码变化，同时修改 `downloadUrl`、`downloadPassword`，并同步更新 `scripts/main.js` 顶部 `appConfig` 与下载二维码。
-3. 提交并推送，GitHub Pages 会在几分钟内自动发布。
-4. 安装新 APK 前，先在 App 内点击“检查更新”验证提示与跳转是否正常。
-
-> 注意：`versionCode` 必须与 Android 工程 `app/build.gradle.kts` 中 `versionCode` 保持一致且递增，否则旧版本用户收不到更新提示，或提示与蓝奏云实际文件不一致。
-
-> 完整的发版操作手册见 Android 工程根目录的 `RELEASE.md`；对 AI 说“更新线上版本”即可按该手册执行。
+纯 HTML、CSS、原生 JavaScript 网站，可直接部署至 GitHub Pages。正式域名为 https://neolinks.top/，由根目录 CNAME 配置。
 
 ## 本地预览
 
-最简单的方法是直接双击 `index.html`。主要页面能够正常打开，但更推荐启动一个本地静态服务器，以便模拟 GitHub Pages：
+在仓库根目录运行任意静态 HTTP 服务器，例如 `python -m http.server 8000`，然后打开 http://localhost:8000/。
 
-### 使用 Python
+## 内容维护
 
-1. 在项目文件夹的空白处按住 Shift 并点击鼠标右键。
-2. 选择“在此处打开 PowerShell 窗口”或“在终端中打开”。
-3. 输入：
+- `index.html`：首页文案、截图、FAQ、下载链接、提取码和搜索元数据。核心信息直接写在 HTML 中，关闭 JavaScript 也能阅读、展开 FAQ 和下载。
+- `styles/main.css`：首页和隐私政策页的响应式样式，包含手机布局、键盘焦点与减少动画适配。
+- `scripts/main.js`：提取码复制和版权年份。剪贴板不可用时显示手动复制提示。
+- `privacy.html`：现有隐私政策；政策内容应与 App 的实际数据处理一致。
+- `assets/screenshots/`：现有应用界面图片。替换时核对图片宽高与 alt 描述。
+- `assets/qr-code/neolinks-download-qr.png`：蓝奏云下载二维码。
 
-```powershell
-python -m http.server 8000
-```
+下载地址为 https://wwbah.lanzoul.com/b01eunew0b，提取码为 `24fr`。更换地址时同步更新首页下载链接、JSON-LD 中的 downloadUrl、二维码。更换密码时同步更新下载区可见文字、按钮 data-copy 和安装 FAQ。
 
-4. 用浏览器打开：
+## 搜索优化
 
-```text
-http://localhost:8000/
-```
+首页已包含描述性标题、description、canonical、Open Graph、Twitter 卡片、WebSite / SoftwareApplication 结构化数据、图片替代文字、语义化标题、可抓取的原生链接与常见问题。没有添加未经证实的评分、价格、版本号或兼容性承诺。截图按需延迟加载，首屏图片优先加载，无外部字体或前端框架依赖。
 
-5. 预览结束后回到终端，按 `Ctrl + C` 停止。
+`robots.txt` 允许抓取，`sitemap.xml` 使用正式域名。只有页面实际变化时才更新对应 lastmod。
 
-## 新手教程：部署到 GitHub Pages
+发布后仍需由站点所有者完成：
 
-### 1. 创建 GitHub 仓库
+1. 在 Google Search Console 和 Bing Webmaster Tools 验证 `https://neolinks.top/`；如面向百度搜索，也在百度搜索资源平台按当前开放能力验证站点。
+2. 提交 `https://neolinks.top/sitemap.xml`，检查首页是否可以抓取，使用平台提供的 URL 检查或收录提交功能。
+3. 在 App 的关于页、蓝奏云说明、真实的社区介绍中统一使用 NeoLinks 名称，并链接回正式域名。
+4. 持续根据搜索词补充真实、有帮助的使用说明，并观察收录和自然搜索点击。技术优化和站点地图不保证收录或排名。
 
-1. 打开 [GitHub](https://github.com/) 并登录。
-2. 点击右上角 `+`，选择 `New repository`。
-3. 在 `Repository name` 中填写仓库名，例如 `neolinks-website`。
-4. 建议选择 `Public`。免费账户的 GitHub Pages 通常使用公开仓库最简单。
-5. 不要勾选自动创建 README、`.gitignore` 或 License，因为本项目已经包含这些文件。
-6. 点击 `Create repository`。
+参考：Google SEO 入门指南 https://developers.google.com/search/docs/fundamentals/seo-starter-guide
 
-### 2. 上传官网文件
+## 发布
 
-适合新手的网页上传方式：
+推送到 GitHub Pages 配置的发布分支后生效。正式发布后检查 HTTPS、主页、隐私政策、二维码和下载地址，再提交站点地图。
 
-1. 进入刚创建的仓库。
-2. 点击 `uploading an existing file`；如果仓库已有文件，点击 `Add file` → `Upload files`。
-3. 将本项目中的 `index.html`、`privacy.html`、`styles`、`scripts`、`assets`、`.gitignore` 和 `README.md` 一起拖入上传区域。
-4. 确认文件夹结构没有被打散。
-5. 在页面底部填写提交说明，例如 `Add NeoLinks website`。
-6. 点击 `Commit changes`。
+## 冻结文件：version.json
 
-如果 `.gitignore` 在文件选择器中不可见，可先在 Windows 资源管理器中打开“显示隐藏的项目”，或稍后通过 Git 命令上传。
+自 2026-09-06 起，App 更新已经切换到 CloudBase 分发中心。`version.json` 保持 1.0.2 / 102 / forceUpdate:true，继续引导 0.4.x 及更早版本用户升级。不要修改本文件的任何字段，也不要随网站更新调整它。
 
-### 3. 进入仓库 Settings
-
-1. 打开仓库首页。
-2. 点击仓库顶部的 `Settings`。
-3. 如果窗口较窄，`Settings` 可能藏在顶部的 `…` 菜单中。
-
-### 4. 打开 Pages
-
-1. 在 Settings 左侧菜单找到 `Code and automation`。
-2. 点击 `Pages`。
-
-### 5. 选择从 main 分支部署
-
-1. 在 `Build and deployment` 区域，将 `Source` 选择为 `Deploy from a branch`。
-2. 在 `Branch` 中选择 `main`。
-
-### 6. 选择根目录
-
-1. 在分支右侧的文件夹选项中选择 `/ (root)`。
-2. 点击 `Save`。
-
-这里的界面通常显示为 `/ (root)`，含义是从仓库根目录发布，不是创建名为 `root` 的文件夹。
-
-### 7. 获得网站地址
-
-1. 保存后等待约 1～5 分钟。
-2. 刷新 Pages 设置页面。
-3. 页面会显示已发布的网站地址，通常是：
-
-```text
-https://你的用户名.github.io/neolinks-website/
-```
-
-4. 点击 `Visit site` 打开官网。
-
-如果页面暂时显示 404，请等待一两分钟后再次刷新，并确认仓库根目录存在 `index.html`。
-
-### 8. 绑定自定义域名
-
-准备好域名后：
-
-1. 进入仓库 `Settings` → `Pages`。
-2. 在 `Custom domain` 中填写域名，例如 `neolinks.example.com`。
-3. 点击 `Save`。
-4. 到域名服务商的 DNS 管理页面添加记录。
-5. 使用子域名时，通常添加一条 `CNAME`，将 `neolinks` 指向 `你的用户名.github.io`。
-6. 使用根域名时，需要按照 GitHub 当前页面给出的 A/AAAA 记录进行设置。
-7. DNS 生效可能需要几分钟到 48 小时。
-
-GitHub 保存自定义域名后可能会在仓库中自动创建 `CNAME` 文件，请保留它。
-
-### 9. 启用 HTTPS
-
-1. 自定义域名验证通过后，仍在 `Settings` → `Pages`。
-2. 勾选 `Enforce HTTPS`。
-3. 如果选项暂时不可用，等待 GitHub 签发证书后再试。
-4. GitHub 默认的 `github.io` 地址会自动使用 HTTPS。
-
-### 10. 修改网站内容
-
-- 修改版本信息和链接：编辑 `scripts/main.js` 顶部的 `appConfig`。
-- 修改页面功能介绍或其他固定文字：编辑 `index.html`。
-- 修改视觉样式：编辑 `styles/main.css`。
-- 替换截图：将真实截图放入 `assets/screenshots/`，并沿用现有文件名；如果使用 PNG/JPG，请同步修改 `index.html` 中相应后缀。
-- 替换 Logo：覆盖 `assets/logo/neolinks-icon.png` 和 `assets/logo/neolinks-wordmark.png`。
-
-每次修改后，在 GitHub 文件编辑页面点击 `Commit changes`。GitHub Pages 会自动重新发布，通常几分钟内生效。
-
-## 当前主下载：蓝奏云
-
-官网的“立即下载”、导航下载按钮、页脚下载入口和二维码均指向：
-
-```text
-https://wwbah.lanzoul.com/b01eunew0b
-```
-
-提取密码：
-
-```text
-24fr
-```
-
-更新 APK 后，请在蓝奏云中确认该分享链接仍可使用。如果更换了分享链接或密码，只需修改 `scripts/main.js` 中的 `downloadUrl` 和 `downloadPassword`，并重新生成二维码。
-
-## 可选备份：发布 GitHub Release
-
-APK 不应提交到官网文件列表中。除蓝奏云外，也可以使用 GitHub Releases 作为备用下载渠道。
-
-1. 进入准备存放 APK 的 GitHub 仓库。
-2. 在仓库首页右侧点击 `Releases`。如果没看到，点击顶部 `Code`，再在页面右侧寻找。
-3. 点击 `Create a new release` 或 `Draft a new release`。
-4. 点击 `Choose a tag`，输入版本标签，例如 `v0.3.1`，然后选择创建这个标签。
-5. 填写 Release 标题，例如 `NeoLinks V0.3.1`。
-6. 将已经正式签名的 APK 固定命名为：
-
-```text
-NeoLinks.apk
-```
-
-7. 把 `NeoLinks.apk` 拖入附件上传区域。
-8. 在说明中填写本次更新内容。
-9. 确认无误后点击 `Publish release`。
-
-如果以后需要切回 GitHub Releases，可将 `downloadUrl` 改为：
-
-```text
-https://github.com/GITHUB_USERNAME/GITHUB_REPOSITORY/releases/latest/download/NeoLinks.apk
-```
-
-必须确保：
-
-- APK 已使用正式发布签名。
-- 不要上传 KeyStore、`.jks`、`.keystore` 或签名密码。
-- 后续版本必须使用同一个签名，否则用户无法覆盖安装更新。
-- 每个最新版 Release 的附件都必须准确命名为 `NeoLinks.apk`，包括大小写。
-- 不要把 Android App 源代码放到官网仓库。
-- 发布后亲自点击官网“立即下载”，确认得到的是正确版本。
-
-## 替换截图和二维码
-
-当前截图是明确标注的占位图：
-
-- `screenshot-placeholder-1.svg`：图库首页
-- `screenshot-placeholder-2.svg`：动态照片
-- `screenshot-placeholder-3.svg`：影像信息
-- `screenshot-placeholder-4.svg`：相册管理
-
-推荐提供 1080 × 2340 或接近 9:19.5 比例的竖屏截图。页面使用 `object-fit: cover`，但设备框和占位图本身均按手机比例设计；如果不希望任何裁切，可将 CSS 中截图的 `object-fit` 改为 `contain`。
-
-正式二维码位于 `assets/qr-code/neolinks-download-qr.png`，当前指向蓝奏云下载页面。更换下载链接后，请重新生成二维码并覆盖这个文件。
-
-## 发布前检查清单
-
-## 让用户更容易搜到官网
-
-官网已内置以下搜索基础：
-
-- 首页标题和描述明确包含 `NeoLinks`、`努比亚`、`影像工具`。
-- `robots.txt` 允许抓取，并指向 `sitemap.xml`。
-- `sitemap.xml` 收录首页和隐私政策页。
-- 首页加入 `SoftwareApplication` 结构化数据，帮助搜索引擎理解 NeoLinks 是 Android 应用。
-- 首页与隐私政策页均设置了规范链接，避免 GitHub Pages 地址产生重复页面。
-
-这些文件提交并发布后，建议再做两件事：
-
-1. 在 Google Search Console 和 Bing Webmaster Tools 中添加 `https://wavejiang.github.io/neolinks-website/`，提交 `https://wavejiang.github.io/neolinks-website/sitemap.xml` 并请求编入索引。
-2. 在官网之外保持统一写法：`NeoLinks（努比亚影像工具）官网`，并在应用介绍、下载页、社交账号或社区帖子中链接回官网。搜索引擎通常需要外部链接和一段时间，才能把“NeoLinks 努比亚”稳定关联到官网。
-
-如果之后绑定了自己的域名，需要同步替换 `index.html`、`privacy.html`、`robots.txt` 和 `sitemap.xml` 中的 `wavejiang.github.io/neolinks-website`，并重新提交新域名的站点地图。
-
-- [ ] Android 最低版本正确
-- [ ] 官网下载按钮能打开正确的蓝奏云页面
-- [ ] 蓝奏云提取密码 `24fr` 正确
-- [ ] `version.json` 中的版本号、更新日志与蓝奏云实际文件一致
-- [ ] 手机安装新 APK 后，App 内“检查更新”能正确提示并跳转蓝奏云
-- [ ] 腾讯问卷可以打开
-- [ ] 已替换真实应用截图或接受占位图继续显示
-- [ ] 下载二维码可以识别并打开正确链接
-- [ ] 已核对并完善 `privacy.html` 中所有“待确认 / 待填写”
-- [ ] 没有提交 APK、Android 源代码、KeyStore、密码、密钥或 `.env`
-- [ ] 手机浏览器中导航、下载按钮和截图横向滑动正常
-- [ ] 自定义域名（如使用）已启用 HTTPS
+本仓库仅放官网资源，不要提交 Android 源代码、APK、KeyStore、密钥或其他敏感文件。

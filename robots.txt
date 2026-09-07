@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wavejiang.github.io/neolinks-website/sitemap.xml
+Sitemap: https://neolinks.top/sitemap.xml

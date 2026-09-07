@@ -27,3 +27,8 @@ gradle.properties
 !.env.example
 *secret*
 *credential*
+
+# CloudBase / Codex 本地技能文件
+.agents/
+cloudbase-skill.md
+skills-lock.json

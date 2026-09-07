@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://neolinks.top/sitemap.xml
+Sitemap: https://www.neolinks.top/sitemap.xml

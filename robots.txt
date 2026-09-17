@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-
-# Admin console and CloudBase built-in pages: keep out of search indexes
-Disallow: /admin/
-Disallow: /cloud-admin/
-Disallow: /__auth/
-
-Sitemap: https://neolinks.top/sitemap.xml
